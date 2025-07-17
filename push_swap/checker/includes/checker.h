@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 09:27:06 by weiyang           #+#    #+#             */
-/*   Updated: 2025/05/30 12:15:34 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/07/17 19:10:51 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE	5
 
-#endif
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -29,13 +29,13 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *s);
 int		end_line(char *str);
 char	*get_next_line(int fd, int final);
-int     ft_strcmp(char *s1, char *s2);
-int     main(int argc, char **argv);
+int		ft_strcmp(char *s1, char *s2);
+int		main(int argc, char **argv);
 
-int	handle_swap_ops(char *op, t_list **list_a, t_list **list_b);
-int	handle_push_ops(char *op, t_list **list_a, t_list **list_b);
-int	handle_rotate_ops(char *op, t_list **list_a, t_list **list_b);
-int handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b);
+int		handle_swap_ops(char *op, t_list **list_a, t_list **list_b);
+int		handle_push_ops(char *op, t_list **list_a, t_list **list_b);
+int		handle_rotate_ops(char *op, t_list **list_a, t_list **list_b);
+int		handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b);
 void	check_op(char *op, t_list **list_a, t_list **list_b);
 
 #endif

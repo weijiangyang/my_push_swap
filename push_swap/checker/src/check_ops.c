@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_ops.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/17 19:04:50 by weiyang           #+#    #+#             */
+/*   Updated: 2025/07/17 19:08:49 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/checker.h"
 
-int handle_swap_ops(char *op, t_list **list_a, t_list **list_b)
+int	handle_swap_ops(char *op, t_list **list_a, t_list **list_b)
 {
 	if (!ft_strcmp(op, "sa\n"))
 	{
@@ -36,7 +48,7 @@ int	handle_push_ops(char *op, t_list **list_a, t_list **list_b)
 	return (0);
 }
 
-int handle_rotate_ops(char *op, t_list **list_a, t_list **list_b)
+int	handle_rotate_ops(char *op, t_list **list_a, t_list **list_b)
 {
 	if (!ft_strcmp(op, "ra\n"))
 	{
@@ -57,9 +69,9 @@ int handle_rotate_ops(char *op, t_list **list_a, t_list **list_b)
 	return (0);
 }
 
-int handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b)
+int	handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b)
 {
-    if (!ft_strcmp(op, "rra\n"))
+	if (!ft_strcmp(op, "rra\n"))
 	{
 		rrotate(list_a);
 		return (1);
@@ -78,17 +90,17 @@ int handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b)
 	return (0);
 }
 
-void    check_op(char *op, t_list **list_a, t_list **list_b)
+void	check_op(char *op, t_list **list_a, t_list **list_b)
 {
-	if (handle_swap_ops(op, list_a, list_b)) 
-        return ;
+	if (handle_swap_ops(op, list_a, list_b))
+		return ;
 	if (handle_push_ops(op, list_a, list_b))
-        return ;
+		return ;
 	if (handle_rotate_ops(op, list_a, list_b))
-        return ;
-    if (handle_rrotate_ops(op, list_a, list_b))
-        return ;
-    free(op);
+		return ;
+	if (handle_rrotate_ops(op, list_a, list_b))
+		return ;
+	free(op);
 	write(2, "Error\n", 6);
 	exit(1);
 }

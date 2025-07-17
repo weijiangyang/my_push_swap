@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/17 19:02:23 by weiyang           #+#    #+#             */
+/*   Updated: 2025/07/17 19:02:47 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/checker.h"
 
 int	main(int argc, char **argv)
@@ -10,7 +22,6 @@ int	main(int argc, char **argv)
 		return (0);
 	list_a = parse_list(argc, argv);
 	list_b = NULL;
-
 	op = get_next_line(0, 0);
 	while (op)
 	{

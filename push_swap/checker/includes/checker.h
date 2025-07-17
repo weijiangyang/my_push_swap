@@ -32,4 +32,10 @@ char	*get_next_line(int fd, int final);
 int     ft_strcmp(char *s1, char *s2);
 int     main(int argc, char **argv);
 
+int	handle_swap_ops(char *op, t_list **list_a, t_list **list_b);
+int	handle_push_ops(char *op, t_list **list_a, t_list **list_b);
+int	handle_rotate_ops(char *op, t_list **list_a, t_list **list_b);
+int handle_rrotate_ops(char *op, t_list **list_a, t_list **list_b);
+void	check_op(char *op, t_list **list_a, t_list **list_b);
+
 #endif

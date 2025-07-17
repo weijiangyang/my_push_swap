@@ -18,7 +18,7 @@ SRC_DIR = src
 EXT_SRC_DIR = ../src
 INC_DIR = includes
 
-SRC = checker.c get_next_line.c get_next_line_utils.c ft_strcmp.c
+SRC = checker.c get_next_line.c get_next_line_utils.c ft_strcmp.c check_ops.c
 EXT_SRC = \
 	../src/cal_cost_a.c \
 	../src/cal_cost_b.c \

@@ -15,35 +15,35 @@ int	main(int argc, char **argv)
 	while (op)
 	{
 		if (ft_strcmp(op, "sa\n") == 0)
-			sa(&list_a);
+			swap(&list_a);
 		else if (ft_strcmp(op, "sb\n") == 0)
-			sb(&list_b);
+			swap(&list_b);
 		else if (ft_strcmp(op, "ss\n") == 0)
 		{
-			sa(&list_a);
-			sb(&list_b);
+			swap(&list_a);
+			swap(&list_b);
 		}
 		else if (ft_strcmp(op, "pa\n") == 0)
-			pa(&list_a, &list_b);
+			p(&list_a, &list_b);
 		else if (ft_strcmp(op, "pb\n") == 0)
-			pb(&list_a, &list_b);
+			p(&list_b, &list_a);
 		else if (ft_strcmp(op, "ra\n") == 0)
-			ra(&list_a);
+			rotate(&list_a);
 		else if (ft_strcmp(op, "rb\n") == 0)
-			rb(&list_b);
+			rotate(&list_b);
 		else if (ft_strcmp(op, "rr\n") == 0)
 		{
-			ra(&list_a);
-			rb(&list_b);
+			rotate(&list_a);
+			rotate(&list_b);
 		}
 		else if (ft_strcmp(op, "rra\n") == 0)
-			rra(&list_a);
+			rrotate(&list_a);
 		else if (ft_strcmp(op, "rrb\n") == 0)
-			rrb(&list_b);
+			rrotate(&list_b);
 		else if (ft_strcmp(op, "rrr\n") == 0)
 		{
-			rra(&list_a);
-			rrb(&list_b);
+			rrotate(&list_a);
+			rrotate(&list_b);
 		}
 		else
 		{

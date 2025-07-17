@@ -41,6 +41,7 @@ int		swap(t_list **list);
 int		sa(t_list **list);
 int		sb(t_list **list);
 int		ss(t_list **list_a, t_list **list_b);
+int		p(t_list **list_a, t_list **list_b);
 int		pa(t_list **list_a, t_list **list_b);
 int		pb(t_list **list_b, t_list **list_a);
 int		rotate(t_list **list);

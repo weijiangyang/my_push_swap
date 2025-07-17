@@ -46,7 +46,6 @@ EXT_SRC = \
 	../src/assign_indexes.c \
 	../src/is_sorted.c
 	
-
 SRC_PATHS = $(addprefix $(SRC_DIR)/, $(SRC))
 ALL_SRC = $(SRC_PATHS) $(EXT_SRC)
 OBJ = $(ALL_SRC:.c=.o)

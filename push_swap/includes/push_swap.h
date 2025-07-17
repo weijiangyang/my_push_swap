@@ -77,5 +77,6 @@ int		checker_parse(char *str);
 char	**ft_split(char const *s, char c);
 int		is_valid_int(char *str);
 int		has_duplicate(t_list *list);
+int		is_sorted(t_list *stack);
 
 #endif

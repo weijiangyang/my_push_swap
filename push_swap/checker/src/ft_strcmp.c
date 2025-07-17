@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 13:34:02 by weiyang           #+#    #+#             */
-/*   Updated: 2025/07/16 16:18:29 by weiyang          ###   ########.fr       */
+/*   Created: 2025/07/17 13:20:56 by weiyang           #+#    #+#             */
+/*   Updated: 2025/07/17 13:21:08 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
-int	main(int argc, char **argv)
+int ft_strcmp(char *s1, char *s2)
 {
-	t_list	*list_a;
-	t_list	*list_b;
-	int		count;
-
-	if (argc < 2)
-		return (0);
-	list_a = parse_list(argc, argv);
-	if (!list_a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	if (is_sorted(list_a))
-	{
-		free_stack(&list_a);
-		return (0);
-	}
-	list_b = NULL;
-	count = sort(&list_a, &list_b);
-	free_stack(&list_a);
-	free_stack(&list_b);
-	return (0);
+    while (*s1 && *s2 && *s1 == *s2)
+    {
+        s1++;
+        s2++;
+    }
+    return ((unsigned char)*s1 - (unsigned char) *s2);
 }

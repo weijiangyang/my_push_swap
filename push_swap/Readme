@@ -1,3 +1,68 @@
+
+
+使用的算法：
+CHUNK + GREEDY
+La méthode **CHUNK + GREEDY** pour le projet **push\_swap** est une stratégie efficace pour trier les nombres en utilisant les deux piles `a` et `b`. Elle combine la division en **groupes (chunks)** avec une logique **greedy (avide)** pour optimiser le nombre de mouvements.
+将所给的数据储存在堆栈A， 同时建立一个备用的空堆栈，  使用CHUNK， 将数据分批从堆栈A转移到堆栈B， 然后利用 GREEDY 的算法， 将数据从堆栈B转移到堆栈A， 选择最节省步数的元素逐步迁移， 堆栈B 空出后， 把堆栈A 中最小值往后的数据反转到正确的位置， 大功告成！
+
+## 🧩 1. CHUNK + GREEDY :
+
+### ✅ Objectif :
+
+* Diviser les nombres en **plus petits groupes (chunks)**.
+将给出的数据分成多个小组
+* Pousser ces groupes de `a` vers `b` progressivement.
+把A中的小组逐步推送到B
+* Puis remonter les éléments de `b` vers `a` dans l’ordre correct.
+把B中的各个元素推回到A。 
+
+## 🔹 2. Étapes de l’algorithme
+算法：
+
+### 🥇 Étape 1 : Créer un tableau trié 将给出的数据创建成一个数据链表， 按大小顺序给别赋予其INDEX
+t_list	*parse_list(int argc, char **argv)
+void	assign_indexes(t_list *lst)
+
+### 🧱 Étape 2 : Découper en **chunks**
+把A中的元素分成小组， 逐步推到B， 同时将推到B中的比中间值小的元素反转到下方， 以减少以后排序的次数
+Choisis un **nombre de chunks** selon la taille de la pile :
+
+| Taille de la pile | Chunks recommandés |
+| ----------------- | ------------------ |
+| 100               | 5 à 20             |
+| 500               | 10 à 40            |
+
+
+### 🚚 Étape 3 : Push les chunks vers la pile B
+int	move_to_b(t_list **list_a, t_list **list_b, int limit, int chunk_size)
+Tu parcours la pile `a` :
+遍历堆栈A
+
+* Si un élément appartient au **chunk courant**, tu le `pb` (push vers `b`).
+如果此元素属于当前的堆栈， 则执行pb, 将此元素推到堆栈B
+* Tu choisis de le mettre en haut ou en bas de `b` selon sa **valeur** (greedy) :
+在堆栈B中， 根据此元素的INDEX 大小， 决定是否反转其位置
+  * Si sa **valeur est petite** → `pb`
+  * Si sa **valeur est grande** → `pb` + `rb` (remettre en bas pour mieux le trier plus tard)
+
+Cela permet de **préparer `b` dans un ordre partiellement trié**, ce qui rend le retour vers `a` plus rapide.
+
+### 🔁 Étape 4 : Remonter `b` vers `a` (tri final)
+将元素从B 转移到A
+
+目标是把B中的元素放置到A中比它大的元素中最小的那个值的上面的位置。 为此需要计算在B中元素中达到此目标需要步数最少的那个元素实行此操作。 
+t_move	*get_move(t_list *a, t_list *b, t_list *tmp, t_move *best)
+t_move	*get_best_move(t_list *a, t_list *b)
+int	execute_move(t_list **a, t_list **b, t_move *move)
+int	greedy_sort(t_list **a, t_list **b)
+
+### 🔁 Étape 5 : remonter les elements en dessous le element plus petit en haut (tri final)
+最后把最小元素及其排列在其下面的元素反转到上面。 
+int	rotate_to_min(t_list **a)
+
+
+安装以下的测试程序可以方便大批量：
 https://github.com/anonylouis/42Project---Push_swap-Tester
 https://github.com/o-reo/push_swap_visualizer
 https://github.com/SimonCROS/push_swap_tester
+
